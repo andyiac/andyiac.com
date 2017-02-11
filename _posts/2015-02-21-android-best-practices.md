@@ -3,9 +3,11 @@ title: Android 开发最佳实践
 layout: post
 date: 2015-02-21 17:13:27
 description: [译]从 Futurice公司Android开发者中学到的经验。
-遵循以下准则，避免重复发明轮子
-tags: [web, jekyll]
+遵循以下准则,避免重复发明轮子
+tags: - Android
 ---
+
+
 
 ## 缘由
  一日见来自[futurice](http://futurice.com/)帮派的一篇帖子在Github江湖流传甚广，遂译成中文，以便我天朝学子研读。
