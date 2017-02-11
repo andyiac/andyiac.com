@@ -2,7 +2,7 @@
 layout: post
 title : Think Different
 date: 2015-05-06 16:27:31
-category: Ideology
+category: Life
 ---
 ## Think different
 
