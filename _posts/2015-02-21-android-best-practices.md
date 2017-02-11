@@ -2,8 +2,7 @@
 title: Android 开发最佳实践
 layout: post
 
-tags:
-- android
+tags: [android]
 
 description: [译]从 Futurice 公司Android开发者中学到的经验。
 ---
