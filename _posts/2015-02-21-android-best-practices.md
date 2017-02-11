@@ -4,7 +4,7 @@ layout: post
 
 categories: post
 tags:
-- Android
+- android
 
 lead: [译]从 Futurice公司Android开发者中学到的经验。
 遵循以下准则,避免重复发明轮子
