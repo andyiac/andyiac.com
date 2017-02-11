@@ -8,8 +8,7 @@ categories: post
 tags:
 - Android
 
-lead: As the complexity of Android projects increase, tolerance for the build
-      system goes to zero.
+lead: 每次开机后自动运行一个脚本，查询本机的 IP ，然后使用邮件的方式，将本机的 IP 发送到指定的邮箱
 ---
 
 
