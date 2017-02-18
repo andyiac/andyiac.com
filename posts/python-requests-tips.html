@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Andyiac | python 开源项目 requests 抓取中文网页乱码</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="python 开源项目 requests 抓取中文网页乱码">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://andyiac.com//posts/python-requests-tips">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="Andyiac">
+  <meta property="og:image" content="http://andyiac.com//assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://andyiac.com//posts/python-requests-tips">
+  <meta name="twitter:title" content="python 开源项目 requests 抓取中文网页乱码">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://andyiac.com//assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="http://andyiac.com//feed.xml" type="application/rss+xml" rel="alternate" title="Andyiac Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Andyiac">Andyiac</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/andyiaczhang" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/andyiac" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:andyiac@foxmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>python 开源项目 requests 抓取中文网页乱码</h1>
+            <p></p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                August 15, 2015
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  1 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>最近在写一个Android客户端，没有数据就拿python抓了一个网站<a href="http://githubrank.com">githubrank.com</a>来测试，
+用到了开源项目<a href="https://github.com/kennethreitz/requests">requests</a></p>
+
+<p>抓取数据代码如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import requests
+
+# crawler ranking
+
+r = requests.get("http://githubrank.com")
+
+print r.text
+</code></pre>
+</div>
+
+<p>数据拿到后打印了下发现中文是十六进制,如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> \xe4\xba\x91\xe9\xa3\x8e
+</code></pre>
+</div>
+
+<p>使用utf-8能正确解码：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> print '\xe4\xba\x91\xe9\xa3\x8e'.decode('utf-8')
+
+ 风云
+</code></pre>
+</div>
+
+<p>查看响应编码发现：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>r.encoding
+
+'ISO-8859-1'
+</code></pre>
+</div>
+
+<p>是’ISO-8859-1’编码</p>
+
+<p>google了一番发现requests只会简单的从服务器响应头的Context-Type 去获取编码，如果有Charset才能正确尸蟞编码，否则使用默认的ISO-8859-1</p>
+
+<p>解决办法即使用ISO-8895-1 encode一下，在使用正确的charset去descode,不过可能再转换过程中引起数据丢失。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print r.text.encode('ISO-8859-1').decode('utf-8')
+</code></pre>
+</div>
+
+<p>正常显示</p>
+
+<p><a href="http://www.zhetenga.com/view/python的requests类抓取中文页面出现乱码-0abbaa140.html">refer</a></p>
+
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=python 开源项目 requests 抓取中文网页乱码 - http://andyiac.com//posts/python-requests-tips by @andyiaczhang', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://andyiac.com//posts/python-requests-tips', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=http://andyiac.com//posts/python-requests-tips', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    <a href="/about" title="About me">@ 2017 andyiac</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-69625956-2','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>

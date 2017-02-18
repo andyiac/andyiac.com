@@ -1,20 +1,90 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Andyiac</title>
+    <description></description>
+    <link>http://andyiac.com/</link>
+    <atom:link href="http://andyiac.com//feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>2017 讲不出再见</title>
+        <description></description>
+        <pubDate>Sun, 01 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/time-to-say-goodbay</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/time-to-say-goodbay</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Play With Raspberry PI</title>
+        <description></description>
+        <pubDate>Fri, 29 Jul 2016 00:59:30 +0800</pubDate>
+        <link>http://andyiac.com//posts/play-with-raspberrypi</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/play-with-raspberrypi</guid>
+      </item>
+    
+      <item>
+        <title>送张德茂大卿驶虏</title>
+        <description></description>
+        <pubDate>Thu, 28 Jan 2016 11:25:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/good-luck-de-mao-zhang</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/good-luck-de-mao-zhang</guid>
+      </item>
+    
+      <item>
+        <title>conoha vps</title>
+        <description></description>
+        <pubDate>Tue, 12 Jan 2016 09:28:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/conoha-vps</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/conoha-vps</guid>
+      </item>
+    
+      <item>
+        <title>Install a new mac develop everment</title>
+        <description>每次重装电脑或者升级新装备后，配一台自己熟悉的开发环境都麻烦，本文的内容都是自己平常使用的一些工具安装配置方法，同时我也会不定期更新。</description>
+        <pubDate>Mon, 30 Nov 2015 00:00:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/install-a-new-mac</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/install-a-new-mac</guid>
+      </item>
+    
+      <item>
+        <title>A Simple Dream Chaser</title>
+        <description></description>
+        <pubDate>Sat, 21 Nov 2015 09:52:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/i-am-a-dream-chaser</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/i-am-a-dream-chaser</guid>
+      </item>
+    
+      <item>
+        <title>TensorFlow</title>
+        <description></description>
+        <pubDate>Mon, 16 Nov 2015 20:48:49 +0800</pubDate>
+        <link>http://andyiac.com//posts/tensflow-zh-uses</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/tensflow-zh-uses</guid>
+      </item>
+    
+      <item>
+        <title>秋雨</title>
+        <description></description>
+        <pubDate>Sat, 07 Nov 2015 14:09:42 +0800</pubDate>
+        <link>http://andyiac.com//posts/autumn-rain</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/autumn-rain</guid>
+      </item>
+    
+      <item>
+        <title>GitHub 托管多个站</title>
+        <description></description>
+        <pubDate>Tue, 03 Nov 2015 22:10:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/jekyll</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/jekyll</guid>
+      </item>
+    
+      <item>
+        <title>我心目中的GitHot</title>
+        <description></description>
+        <pubDate>Sat, 10 Oct 2015 20:30:00 +0800</pubDate>
+        <link>http://andyiac.com//posts/githot</link>
+        <guid isPermaLink="true">http://andyiac.com//posts/githot</guid>
+      </item>
+    
   </channel>
 </rss>

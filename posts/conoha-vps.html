@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Andyiac | conoha vps</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="conoha vps">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://andyiac.com//posts/conoha-vps">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="Andyiac">
+  <meta property="og:image" content="http://andyiac.com//assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://andyiac.com//posts/conoha-vps">
+  <meta name="twitter:title" content="conoha vps">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://andyiac.com//assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="http://andyiac.com//feed.xml" type="application/rss+xml" rel="alternate" title="Andyiac Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Andyiac">Andyiac</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/andyiaczhang" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/andyiac" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:andyiac@foxmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>conoha vps</h1>
+            <p></p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                January 12, 2016
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  1 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>今天在 <a href="www.conoha.jp">conoha.jp</a> 上买了一个 vps CentOS环境，准备再玩儿一下nodejs，以下是记录的期间遇到的几个问题</p>
+
+<p>##1. 80端口不能访问</p>
+
+<p>装上nodejs PM2 express 写了个helloworld ，在chrome上用ip访问了一下不能访问，第一想到的是80端口没开</p>
+
+<p>装上python 的 requests包</p>
+
+<p>安装request方法：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install requests
+</code></pre>
+</div>
+<p>用request 请求了一下本级地址，结果没问题</p>
+
+<p>于是去conoha配置面板看了一下，80端口是开放的。</p>
+
+<p>百思不得其姐</p>
+
+<p>于是乎又看了一下系统版本如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>➜  sysconfig  cat /etc/redhat-release
+CentOS Linux release 7.2.1511 (Core)
+</code></pre>
+</div>
+
+<p>查了一下CentOS 7.2 系统默认是把防火墙开启的，需要手工开启</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+</code></pre>
+</div>
+
+<p>##1. PM2</p>
+
+<p>github homepage <a href="https://github.com/Unitech/pm2">pm2</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ pm2 start app.js
+</code></pre>
+</div>
+
+<h2 id="hapi">Hapi</h2>
+
+<p><a href="http://hapijs.com/tutorials">hapijs</a></p>
+
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=conoha vps - http://andyiac.com//posts/conoha-vps by @andyiaczhang', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://andyiac.com//posts/conoha-vps', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=http://andyiac.com//posts/conoha-vps', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    <a href="/about" title="About me">@ 2017 andyiac</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-69625956-2','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>

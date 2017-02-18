@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Andyiac | 用 JSON Server 做 Data Mock</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="用 JSON Server 做 Data Mock">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://andyiac.com//posts/mock-data-json-server">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="Andyiac">
+  <meta property="og:image" content="http://andyiac.com//assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="http://andyiac.com//posts/mock-data-json-server">
+  <meta name="twitter:title" content="用 JSON Server 做 Data Mock">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://andyiac.com//assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="http://andyiac.com//feed.xml" type="application/rss+xml" rel="alternate" title="Andyiac Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Andyiac">Andyiac</a>
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/andyiaczhang" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/andyiac" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:andyiac@foxmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>用 JSON Server 做 Data Mock</h1>
+            <p></p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                June 10, 2015
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  1 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="情景">情景</h2>
+
+<p>在团队协同开发时大家经常时先写文档，把接口和对应的json数据都规定在文档里</p>
+
+<p>然后项目组的前后端分别依据此文档来写程序。</p>
+
+<p>然而，前端的同学没有后端同学接口返回数据之前，一般会等后端开发的同学把接口调试好才能联调。
+等待的过程可能会导致前后端开发不同步。</p>
+
+<p>JSON Server 来了
+等灯登灯。。。</p>
+
+<p>JSON Server 很优雅的解决了这个问题</p>
+
+<h2 id="优雅的json-server">优雅的JSON Server</h2>
+
+<p>JSON Server 是 Node.js写的一个第三方库，可快速生成 REST API fake json 数据，安装使用非常方便。</p>
+
+<p>通过JSON Server 前端开发同学不用等后端同学的接口，自己随手找个服务器，写一个json文件几条命令就可生成服务端接口，服务端同学接口开发完成之后，前端同学把客户端服务地址一更换即可时间无缝对接。</p>
+
+<h2 id="快速使用">快速使用</h2>
+
+<p>首先要确认安装Node.js，如何安装就不在此赘述了</p>
+
+<p>安装 JSON Server</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ npm install -g json-server
+</code></pre>
+</div>
+
+<p>编辑json文件，如编辑 db.json文件添加以下内容：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"posts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json-server"</span><span class="p">,</span><span class="w"> </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typicode"</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w"> </span><span class="nt">"postId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typicode"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>开启服务</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ json-server --watch db.json
+</code></pre>
+</div>
+
+<p>访问 <a href="">http://localhost:3000/posts/1</a>, 返回如下</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"json-server"</span><span class="p">,</span><span class="w"> </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"typicode"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>json-server 默认使用3000端口，你也可以更改端口</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ json-server -p 20001 -w db.json
+</code></pre>
+</div>
+
+<p>注： 如果放在服务器上不要忘记开防火墙否则不能访问</p>
+
+<hr />
+
+<p>同时JSON Server 支持REST 其他方法,</p>
+
+<p>更多请查看考GitHub<a href="https://github.com/typicode/json-server">https://github.com/typicode/json-server</a></p>
+
+<p>转载请注明出处</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=用 JSON Server 做 Data Mock - http://andyiac.com//posts/mock-data-json-server by @andyiaczhang', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=http://andyiac.com//posts/mock-data-json-server', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=http://andyiac.com//posts/mock-data-json-server', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    <a href="/about" title="About me">@ 2017 andyiac</a>.
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-69625956-2','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>
