@@ -1,13 +1,10 @@
 ---
 layout: post
-title: "Install a new Mac Develop everment"
-description: "每次重装电脑或者升级新装备后，配一台自己熟悉的开发环境都麻烦，本文的内容都是自己平常使用的一些工具安装配置方法"
+title: "Install a new mac develop everment"
+description: "每次重装电脑或者升级新装备后，配一台自己熟悉的开发环境都麻烦，本文的内容都是自己平常使用的一些工具安装配置方法，同时我也会不定期更新。"
 tags: [android]
 ---
-# Install a new Mac Develop everment
 
-
-每次重装电脑或者升级新装备后，配一台自己熟悉的开发环境都麻烦，本文的内容都是自己平常使用的一些工具安装配置方法，同时我也会不定期更新。
 
 ## Chrome  plugin
  
@@ -122,6 +119,18 @@ brew install git-flow
 ## keycastr
 show key click on keyboard
 [keycastr](https://github.com/keycastr/keycastr)
+
+
+## ssh-keygen
+
+注意先切换到 .ssh 目录下，执行 ssh-keygen 命令
+
+```
+➜  cd
+➜  cd .ssh
+➜  .ssh ssh-keygen
+➜  .ssh cat github_rsa.pub | pbcopy 
+```
 
 
 ---
