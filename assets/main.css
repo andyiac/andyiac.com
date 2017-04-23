@@ -2,11 +2,60 @@
     margin: 0; 
     padding: 0;
 }
+
+div{
+    display: block;
+}
+
 a{
     text-decoration: none;
 }
 
-.container{
-    width: 500px;
+a:hover{
+    text-decoration: underline;
+}
+
+.container .my-stuffs{
+    position: absolute;
+    /*background-color: #ccc;*/
+    background-image:url('./k2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.container .my-stuffs .center{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:600px;
     margin: 0 auto;
+}
+
+.container .my-stuffs .center .my-name{
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+.container .my-stuffs ul li{
+    font-size: 24px;
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.container .my-stuffs ul li a{
+    color: #fff;
 }
