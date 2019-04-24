@@ -18,7 +18,7 @@ a:hover{
 .container .my-stuffs{
     position: absolute;
     /*background-color: #ccc;*/
-    background-image:url('http://7xo3oi.com1.z0.glb.clouddn.com/k2_1_y.jpg');
+    background-image:url('./k2_1_y.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
