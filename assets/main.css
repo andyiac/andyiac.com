@@ -3,8 +3,11 @@
     padding: 0;
 }
 
-body {
+html,body {
     background: black;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 div{
     display: block;
@@ -17,11 +20,9 @@ a{
 a:hover{
     text-decoration: underline;
 }
-.container {
-    min-height: 800px;
-}
 
-.container .my-stuffs{
+
+.my-stuffs{
     position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
@@ -34,7 +35,7 @@ a:hover{
     text-align: center;
 }
 
-.container .my-stuffs .center{
+.my-stuffs .center{
     position: absolute;
     top: 50%;
     left:50%;
@@ -43,7 +44,7 @@ a:hover{
     margin: 0 auto;
 }
 
-.container .my-stuffs .center .my-name{
+.my-stuffs .center .my-name{
     color: #fff;
     font-size: 28px;
     font-weight: bold;
@@ -51,7 +52,7 @@ a:hover{
     letter-spacing: 16px;
     text-transform: uppercase;
 }
-.container .my-stuffs ul li{
+.my-stuffs ul li{
     font-size: 20px;
     list-style: none;
     display: inline-block;
@@ -60,6 +61,6 @@ a:hover{
     text-transform: uppercase;
 }
 
-.container .my-stuffs ul li a{
+.my-stuffs ul li a{
     color: #fff;
 }
