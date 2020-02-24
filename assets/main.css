@@ -68,6 +68,10 @@ a:hover{
 .bottom-icp {
     position: fixed;
     bottom: 0;
+}
+
+.bottom-icp a{
+    display: block;
     text-align: center;
     color: #ccc;
 }
