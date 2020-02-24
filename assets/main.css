@@ -64,3 +64,10 @@ a:hover{
 .my-stuffs ul li a{
     color: #fff;
 }
+
+.bottom-icp {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: #ccc;
+}
